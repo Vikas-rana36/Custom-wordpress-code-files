@@ -1,0 +1,24 @@
+	// jquery for visible divi in view after scroll and set/get the slick autoplay option
+jQuery( document ).ready(function() {
+// set autoplay activation point
+var element_position = jQuery('#cus-carosal').offset().top;
+var screen_height = jQuery(window).height();
+var activation_offset = 0.75;
+var activation_point = element_position - (screen_height * activation_offset);
+
+// start autoplay when slider is scrolled into view
+jQuery(window).on('scroll', function() {
+  var y_scroll_pos = window.pageYOffset;
+  var element_in_view = y_scroll_pos > activation_point;
+  
+  if(element_in_view && !is_autoplay_enabled) {
+    //jQuery('.wppsac-post-slider-init').slick('slickSetOption', 'autoplay', true, true);
+  }
+  
+  // check autoplay in console
+  var is_autoplay_enabled = jQuery('.wppsac-post-slider-init').slick('slickGetOption', 'autoplay');
+  console.log( is_autoplay_enabled );
+  });
+// end here	
+
+});
