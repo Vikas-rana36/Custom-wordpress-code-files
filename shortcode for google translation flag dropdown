@@ -1,0 +1,139 @@
+// add shortcode for translation dropdown flag
+add_shortcode( 'trans_lang_flag', 'trans_lang_flag_func' );
+
+function trans_lang_flag_func(){ 
+    $tlf_html = '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        } 
+        .goog-logo-link {
+            display:none !important;
+        } 
+    </style>
+
+    <div class="trans-section">
+                      <div id="google_translate_element" style="display: none;"></div>
+        <select class="selectpicker" data-width="fit" onchange="translateLanguage(this.value);">
+            <option data-content=\'<span class="flag-icon flag-icon-af"></span>\' value="Afrikaans">Afrikaans</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-al"></span>\' value="Albanian">Albanian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ar"></span>\' value="Arabic">Arabic</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-am"></span>\' value="Armenian">Armenian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-az"></span>\' value="Azerbaijani">Azerbaijani</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-eu"></span>\' value="Basque">Basque</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-be"></span>\' value="Belarusian">Belarusian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-bn"></span>\' value="Bengali">Bengali</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-bs"></span>\' value="Bosnian">Bosnian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-bg"></span>\' value="Bulgarian">Bulgarian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-cu"></span>\' value="Catalan">Catalan</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-cn"></span>\' value="Chinese (Simplified)">Chinese (Simplified)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tw"></span>\' value="Chinese (Traditional)">Chinese (Traditional)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-co"></span>\' value="Corsican">Corsican</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-hr"></span>\' value="Croatian">Croatian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-cz"></span>\' value="Czech">Czech</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-dk"></span>\' value="Danish">Danish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-nl"></span>\' value="Dutch">Dutch</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-us"></span>\' value="English">English</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-et"></span>\' value="Estonian">Estonian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-fi"></span>\' value="Finnish">Finnish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-fr"></span>\' value="French">French</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-gl"></span>\' value="Galician">Galician</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ge"></span>\' value="Georgian">Georgian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-de"></span>\' value="German">German</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-gr"></span>\' value="Greek">Greek</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-gu"></span>\' value="Gujarati">Gujarati</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ht"></span>\' value="Haitian Creole">Haitian Creole</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-il"></span>\' value="Hebrew">Hebrew</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-in"></span>\' value="Hindi">Hindi</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-hu"></span>\' value="Hungarian">Hungarian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-is"></span>\' value="Icelandic">Icelandic</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-id"></span>\' value="Indonesian">Indonesian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ga"></span>\' value="Irish">Irish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-it"></span>\' value="Italian">Italian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-jp"></span>\' value="Japanese">Japanese</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-kn"></span>\' value="Kannada">Kannada</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-kz"></span>\' value="Kazakh">Kazakh</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-km"></span>\' value="Khmer">Khmer</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-rw"></span>\' value="Kinyarwanda">Kinyarwanda</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-kr"></span>\' value="Korean">Korean</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ir"></span>\' value="Kurdish (Kurmanji)">Kurdish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ky"></span>\' value="Kyrgyz">Kyrgyz</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-la"></span>\' value="Lao">Lao</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-lv"></span>\' value="Latvian">Latvian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-lt"></span>\' value="Lithuanian">Lithuanian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-lb"></span>\' value="Luxembourgish">Luxembourgish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mk"></span>\' value="Macedonian">Macedonian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mg"></span>\' value="Malagasy">Malagasy</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ms"></span>\' value="Malay">Malay</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ml"></span>\' value="Malayalam">Malayalam</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mt"></span>\' value="Maltese">Maltese</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mr"></span>\' value="Marathi">Marathi</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mn"></span>\' value="Mongolian">Mongolian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-my"></span>\' value="Myanmar (Burmese)">Myanmar (Burmese)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ne"></span>\' value="Nepali">Nepali</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-no"></span>\' value="Norwegian">Norwegian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-mw"></span>\' value="Nyanja (Chichewa)">Nyanja (Chichewa)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ps"></span>\' value="Pashto">Pashto</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-pl"></span>\' value="Polish">Polish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-pt"></span>\' value="Portuguese (Portugal, Brazil)">Portuguese (Portugal, Brazil)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-pa"></span>\' value="Punjabi">Punjabi</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ro"></span>\' value="Romanian">Romanian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ru"></span>\' value="Russian">Russian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sm"></span>\' value="Samoan">Samoan</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-gd"></span>\' value="Scots Gaelic">Scots Gaelic</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sr"></span>\' value="Serbian">Serbian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-st"></span>\' value="Sesotho">Sesotho</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sn"></span>\' value="Shona">Shona</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sd"></span>\' value="Sindhi">Sindhi</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-si"></span>\' value="Sinhala (Sinhalese)">Sinhala (Sinhalese)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sk"></span>\' value="Slovak">Slovak</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sl"></span>\' value="Slovenian">Slovenian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-so"></span>\' value="Somali">Somali</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-es"></span>\' value="Spanish">Spanish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-sv"></span>\' value="Swedish">Swedish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tl"></span>\' value="Tagalog (Filipino)">Tagalog (Filipino)</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tg"></span>\' value="Tajik">Tajik</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tt"></span>\' value="Tatar">Tatar</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-th"></span>\' value="Thai">Thai</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tr"></span>\' value="Turkish">Turkish</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-tk"></span>\' value="Turkmen">Turkmen</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ua"></span>\' value="Ukrainian">Ukrainian</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-pk"></span>\' value="Urdu">Urdu</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-ug"></span>\' value="Uyghur">Uyghur</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-uz"></span>\' value="Uzbek">Uzbek</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-vi"></span>\' value="Vietnamese">Vietnamese</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-cy"></span>\' value="Welsh">Welsh</option>
+            <option  data-content=\'<span class="flag-icon flag-icon-zw"></span>\' value="Xhosa">Xhosa</option>
+        </select>
+    </div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: \'en\', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, \'google_translate_element\');
+        }
+
+        function translateLanguage(lang) {
+            googleTranslateElementInit();
+            var $frame = $(\'.goog-te-menu-frame:first\');
+            if (!$frame.size()) {
+                alert("Error: Could not find Google translate frame.");
+                return false;
+            }
+            $frame.contents().find(\'.goog-te-menu2-item span.text:contains(\' + lang + \')\').get(0).click();
+            return false;
+        }
+
+        $(function(){
+            $(\'.selectpicker\').selectpicker();
+        });
+    </script>';
+    return $tlf_html;
+}
+
+// end translation flag shortcode
